@@ -17,7 +17,7 @@ public class Book {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int Id;
 
-
+    
     private String BookTitle;
 
     @OneToOne(cascade=CascadeType.ALL)

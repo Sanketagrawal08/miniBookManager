@@ -28,4 +28,5 @@ public class FileUploadController {
         if(!isSuccess) return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ni hua sory darling sory darling");
         return ResponseEntity.ok("hogaya");
     }
+
 }
