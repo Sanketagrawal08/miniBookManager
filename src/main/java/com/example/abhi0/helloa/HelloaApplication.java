@@ -10,4 +10,13 @@ public class HelloaApplication {
 		SpringApplication.run(HelloaApplication.class, args);
 	}
 
+
+	// Bidirectional Relationships--onetomany,manytoone,manytomany
+	
+	// unidirectional mtlb book ka author nikal sakte but author se book nahi toh yeh bi me hoga
+    // assume parent as book and child as author 
+	// @JsonManagedReference- parent pr
+	// @JsonBackReference-  child pr
+
+
 }

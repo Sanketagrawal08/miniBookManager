@@ -1,9 +1,13 @@
 package com.example.abhi0.helloa.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 
@@ -15,26 +19,32 @@ public class Book {
 
 
     private String BookTitle;
-    private String AuthorName;
 
-    public Book(int Id, String BookTitle, String AuthorName) {
+    @OneToOne(cascade=CascadeType.ALL)
+    //parents ke operation child par bhi apply ho iske liye cascasde laagate he 
+    @JsonManagedReference
+    private Author author;
+
+    public Book(int Id, String BookTitle, Author author) {
         this.Id = Id;
         this.BookTitle = BookTitle;
-        this.AuthorName = AuthorName;
+        this.author = author;
     }
 
     public Book() {
     // default constructor
 }
 
+
     @Override
     public String toString() {
         return "{" +
             " Id='" + getId() + "'" +
             ", BookTitle='" + getBookTitle() + "'" +
-            ", AuthorName='" + getAuthorName() + "'" +
+            ", author='" + getAuthor() + "'" +
             "}";
     }
+   
 
     public int getId() {
         return this.Id;
@@ -52,12 +62,12 @@ public class Book {
         this.BookTitle = BookTitle;
     }
 
-    public String getAuthorName() {
-        return this.AuthorName;
+     public Author getAuthor() {
+        return this.author;
     }
 
-    public void setAuthorName(String AuthorName) {
-        this.AuthorName = AuthorName;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
     
 }

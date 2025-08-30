@@ -35,8 +35,7 @@ public class BookService {
         Book existing = opt.get();
 
         existing.setBookTitle(book.getBookTitle());
-        existing.setAuthorName(book.getAuthorName());
-
+        existing.setAuthor(book.getAuthor());
         return bookRepository.save(existing);
     }
 }
